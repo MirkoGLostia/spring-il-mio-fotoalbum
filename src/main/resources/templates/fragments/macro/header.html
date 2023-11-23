@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<header th:fragment="header(h1, area)">
+
+    <nav th:replace="fragments/navigation :: navigation(${area})"></nav>
+
+    <h1 th:text="${h1}"></h1>
+
+    <div th:if="${area == 'photo-list'}" th:insert="fragments/search :: search"></div>
+
+</header>
+
+</body>
+</html>
