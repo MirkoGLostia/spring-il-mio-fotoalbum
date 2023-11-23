@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/")
@@ -15,8 +18,8 @@ public class PhotoController {
     private PhotoService photoService;
 
     @GetMapping
-    public String index(Model model) {
-        model.addAttribute("photoList", photoService.getPhotoList());
+    public String index(@RequestParam Optional<String> search, Model model) {
+        model.addAttribute("photoList", photoService.getPhotoList(search));
         return "photos/list";
     }
 }
