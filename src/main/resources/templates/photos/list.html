@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>photo list</title>
+</head>
+<body>
+
+<h1>Photo list</h1>
+
+<div th:each="photo : ${photoList}">
+    <hr>
+    <h2 th:text="${photo.title}"></h2>
+
+    <p th:text="${photo.description}"></p>
+
+    <img th:src="${photo.image}" alt="image">
+    <hr>
+</div>
+
+</body>
+</html>
