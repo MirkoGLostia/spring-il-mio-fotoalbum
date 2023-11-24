@@ -35,4 +35,15 @@ public class PhotoService {
             throw new PhotoNotFoundException("Photo with id " + id + " not found");
         }
     }
+
+    public Photo editPhoto(Photo photo) throws PhotoNotFoundException {
+        Photo photoToEdit = getPhotoById(photo.getId());
+
+        photoToEdit.setTitle(photo.getTitle());
+        photoToEdit.setDescription(photo.getDescription());
+        photoToEdit.setImage(photo.getImage());
+        photoToEdit.setCategories(photo.getCategories());
+
+        return photoRepository.save(photoToEdit);
+    }
 }

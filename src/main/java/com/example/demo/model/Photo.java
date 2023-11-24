@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.HashSet;
@@ -13,11 +14,11 @@ public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NotBlank
+    @NotBlank(message = "give a title to the photo")
     private String title;
     @Lob
     private String description;
-    @NotBlank
+    @NotBlank(message = "give the url of the photo")
     private String image;
     private Boolean visible;
     @ManyToMany
