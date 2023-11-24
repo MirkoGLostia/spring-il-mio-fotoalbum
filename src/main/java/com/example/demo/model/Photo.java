@@ -24,6 +24,9 @@ public class Photo {
     @ManyToMany
     private Set<Category> categories = new HashSet<>();
 
+    @ManyToOne
+    private User user;
+
     public Integer getId() {
         return id;
     }
@@ -72,4 +75,11 @@ public class Photo {
         this.categories = categories;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
