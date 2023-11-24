@@ -28,6 +28,9 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
 
+    @ManyToOne
+    private Set<Photo> photos = new HashSet<>();
+
     public Integer getId() {
         return id;
     }
