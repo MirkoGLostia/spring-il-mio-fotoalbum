@@ -42,6 +42,7 @@ public class PhotoService {
         photoToEdit.setTitle(photo.getTitle());
         photoToEdit.setDescription(photo.getDescription());
         photoToEdit.setImage(photo.getImage());
+        photoToEdit.setVisible(photo.getVisible());
         photoToEdit.setCategories(photo.getCategories());
 
         return photoRepository.save(photoToEdit);
