@@ -7,6 +7,16 @@
 
 <header th:replace="fragments/macro/header :: header('Photo list', ${area})"></header>
 
+<div>
+    <h3 th:text="${message}"></h3>
+</div>
+
+<div th:unless="${photoList.size() > 0}">
+    <h2>
+        no photos available
+    </h2>
+</div>
+
 <div th:each="photo : ${photoList}">
     <hr>
     <h2>
@@ -21,6 +31,9 @@
     <div>
         <a th:href="@{detail/{id}(id=${photo.getId()})}">detail</a>
         <a th:href="@{edit/{id}(id=${photo.getId()})}">modify</a>
+        <form method="POST" th:action="@{/delete/{id}(id=${photo.getId()})}" onsubmit="return confirm('Are you sure?')">
+            <button type="submit"> delete </button>
+        </form>
     </div>
     <hr>
 </div>

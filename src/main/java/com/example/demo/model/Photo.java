@@ -71,4 +71,5 @@ public class Photo {
     public void setCategories(Set<Category> categories) {
         this.categories = categories;
     }
+
 }

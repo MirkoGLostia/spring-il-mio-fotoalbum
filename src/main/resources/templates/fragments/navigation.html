@@ -4,14 +4,17 @@
 <nav th:fragment="navigation(area)">
 
 
-            <ul>
-                <li>
-                    <a th:classAppend="${area == 'photo-list' ? 'active' : ''}" th:href="@{/}">photo list</a>
-                </li>
-                <li>
-                    <a th:classAppend="${area == 'photo-create' ? 'active' : ''}" th:href="@{/create}">upload photo</a>
-                </li>
-            </ul>
+    <ul>
+        <li>
+            <a th:classAppend="${area == 'photo-list' ? 'active' : ''}" th:href="@{/}">photo list</a>
+        </li>
+        <li>
+            <a th:classAppend="${area == 'photo-create' ? 'active' : ''}" th:href="@{/create}">upload photo</a>
+        </li>
+        <li>
+            <a th:classAppend="${area == 'category-list' ? 'active' : ''}" th:href="@{/category}">categories</a>
+        </li>
+    </ul>
 
 </nav>
 </body>

@@ -14,7 +14,8 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NotBlank
+    @NotBlank(message = "need a name")
+    @Column(nullable = false, unique = true)
     private String name;
     @Size(max = 100)
     private String description;

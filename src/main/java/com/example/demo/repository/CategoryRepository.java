@@ -9,4 +9,6 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
     List<Category> findByOrderByName();
 
+    Boolean existsByName(String category);
+
 }
