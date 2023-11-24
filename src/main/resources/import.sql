@@ -16,8 +16,8 @@ INSERT INTO users_roles (user_id, roles_id) VALUES(2, 2);
 
 -- photos --
 
-INSERT INTO photos (description, image, title, visible, user_id) VALUES('description 1', 'url 1', 'image 1', 1, 1);
-INSERT INTO photos (description, image, title, visible, user_id) VALUES('description 2', 'url 2', 'image 2', 0, 2);
+INSERT INTO photos (description, image, title, visible, user_photo_id) VALUES('description 1', 'url 1', 'image 1', 1, 1);
+INSERT INTO photos (description, image, title, visible, user_photo_id) VALUES('description 2', 'url 2', 'image 2', 0, 2);
 
 -- categories --
 
@@ -31,3 +31,7 @@ INSERT INTO photos_categories (photos_id, categories_id) VALUES(1, 1);
 INSERT INTO photos_categories (photos_id, categories_id) VALUES(1, 2);
 INSERT INTO photos_categories (photos_id, categories_id) VALUES(2, 3);
 INSERT INTO photos_categories (photos_id, categories_id) VALUES(2, 1);
+
+-- messages --
+
+INSERT INTO messages (email, message, read_mex, user_message_id) VALUES('admirer1@mail.com', 'love it', 0, 1);

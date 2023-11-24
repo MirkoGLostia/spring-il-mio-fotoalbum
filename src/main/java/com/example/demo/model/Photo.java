@@ -25,7 +25,7 @@ public class Photo {
     private Set<Category> categories = new HashSet<>();
 
     @ManyToOne
-    private User user;
+    private User userPhoto;
 
     public Integer getId() {
         return id;
@@ -75,11 +75,13 @@ public class Photo {
         this.categories = categories;
     }
 
-    public User getUser() {
-        return user;
+    public User getUserPhoto() {
+        return userPhoto;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserPhoto(User userPhoto) {
+        this.userPhoto = userPhoto;
     }
+
+
 }

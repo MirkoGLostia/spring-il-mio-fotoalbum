@@ -24,8 +24,11 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "userPhoto")
     private Set<Photo> photos = new HashSet<>();
+
+    @OneToMany(mappedBy = "userMessage")
+    private Set<Message> messages = new HashSet<>();
 
     public Integer getId() {
         return id;
@@ -73,5 +76,13 @@ public class User {
 
     public void setPhotos(Set<Photo> photos) {
         this.photos = photos;
+    }
+
+    public Set<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(Set<Message> messages) {
+        this.messages = messages;
     }
 }
