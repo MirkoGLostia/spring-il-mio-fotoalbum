@@ -9,11 +9,18 @@
 
 <div th:object="${photo}">
   <hr>
-  <h2 th:text="${photo.title}"></h2>
+  <h2>
+    <span th:text="${photo.title}"></span>
+    <span th:if="${photo.visible}">_x_</span>
+  </h2>
 
   <p th:text="${photo.description}"></p>
 
   <img th:src="${photo.image}" alt="image">
+
+  <ul th:each="cat : ${photo.categories}">
+    <li th:text="${cat.name}"></li>
+  </ul>
   <hr>
 </div>
 
