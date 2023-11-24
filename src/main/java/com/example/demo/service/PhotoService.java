@@ -52,4 +52,10 @@ public class PhotoService {
 
         return photoRepository.save(photoToEdit);
     }
+
+    public void deletePhoto(Integer id) {
+
+        photoRepository.deleteById(id);
+
+    }
 }

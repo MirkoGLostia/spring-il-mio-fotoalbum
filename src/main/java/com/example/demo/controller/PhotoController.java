@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Optional;
 
@@ -65,7 +66,7 @@ public class PhotoController {
         return "redirect:/detail/" + savedPhoto.getId();
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("edit/{id}")
     public String editPhoto(@PathVariable Integer id, Model model) {
         try {
             model.addAttribute("area", "photo-create");
@@ -79,7 +80,7 @@ public class PhotoController {
 
 
 
-    @PostMapping("/edit/{id}")
+    @PostMapping("edit/{id}")
     public String doEditPhoto(Model model, @PathVariable Integer id, @Valid @ModelAttribute("photo") Photo formPhoto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("area", "photo-create");
@@ -89,6 +90,20 @@ public class PhotoController {
         try {
             Photo editPhoto = photoService.editPhoto(formPhoto);
             return "redirect:/detail/" + editPhoto.getId();
+        } catch (PhotoNotFoundException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
+        }
+    }
+
+
+    @PostMapping("delete/{id}")
+    public String deletePhoto(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
+        try {
+            Photo photoToDelete = photoService.getPhotoById(id);
+            photoService.deletePhoto(id);
+            redirectAttributes.addFlashAttribute("message",
+                    "Photo " + photoToDelete.getTitle() + " deleted!");
+            return "redirect:/";
         } catch (PhotoNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
