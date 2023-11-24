@@ -36,6 +36,11 @@ public class PhotoService {
         }
     }
 
+    public Photo savePhoto(Photo p) {
+        p.setId(null);
+        return photoRepository.save(p);
+    }
+
     public Photo editPhoto(Photo photo) throws PhotoNotFoundException {
         Photo photoToEdit = getPhotoById(photo.getId());
 

@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import com.example.demo.exceptions.PhotoNotFoundException;
 import com.example.demo.model.Photo;
-import com.example.demo.repository.PhotoRepository;
 import com.example.demo.service.CategoryService;
 import com.example.demo.service.PhotoService;
 import jakarta.validation.Valid;
@@ -22,8 +21,6 @@ public class PhotoController {
 
     @Autowired
     private PhotoService photoService;
-    @Autowired
-    private PhotoRepository photoRepository;
     @Autowired
     private CategoryService categoryService;
 
@@ -64,7 +61,7 @@ public class PhotoController {
         }
 
 
-        Photo savedPhoto = photoRepository.save(formPhoto);
+        Photo savedPhoto = photoService.savePhoto(formPhoto);
         return "redirect:/detail/" + savedPhoto.getId();
     }
 
