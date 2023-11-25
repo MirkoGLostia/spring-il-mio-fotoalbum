@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -27,8 +28,9 @@ public class PhotoController {
 
     @GetMapping
     public String index(@RequestParam Optional<String> search, Model model) {
+        List<Photo> photo = photoService.getPhotoList(search);
         model.addAttribute("area", "photo-list");
-        model.addAttribute("photoList", photoService.getPhotoList(search));
+        model.addAttribute("photoList", photo);
         return "photos/list";
     }
 

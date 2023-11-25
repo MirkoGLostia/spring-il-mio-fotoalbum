@@ -18,6 +18,7 @@ public class User {
     private String nickname;
     @NotBlank
     @Email
+    @Column(nullable = false, unique = true)
     private String email;
     private String password;
 
