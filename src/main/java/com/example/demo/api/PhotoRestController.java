@@ -21,7 +21,7 @@ public class PhotoRestController {
 
     @GetMapping
     public List<Photo> photoApiList(@RequestParam Optional<String> search) {
-        return photoService.getPhotoList(search);
+        return photoService.getPhotoListVisible(search);
     }
 
     @GetMapping("/{id}")
