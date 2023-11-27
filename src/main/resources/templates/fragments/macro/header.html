@@ -6,7 +6,9 @@
 
     <nav th:replace="fragments/navigation :: navigation(${area})"></nav>
 
-    <h1 th:text="${h1}"></h1>
+    <div class="head-title">
+        <h1 th:text="${h1}">Photo List</h1>
+    </div>
 
     <div th:if="${area == 'photo-list'}" th:insert="fragments/search :: search"></div>
 

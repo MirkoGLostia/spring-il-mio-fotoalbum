@@ -4,7 +4,7 @@
 <nav th:fragment="navigation(area)">
 
 
-    <ul>
+    <ul class="nav-link">
         <li>
             <a th:classAppend="${area == 'photo-list' ? 'active' : ''}" th:href="@{/}">photo list</a>
         </li>

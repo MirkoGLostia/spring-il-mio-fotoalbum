@@ -16,8 +16,8 @@ INSERT INTO users_roles (user_id, roles_id) VALUES(2, 2);
 
 -- photos --
 
-INSERT INTO photos (description, image, title, visible, user_photo_id) VALUES('description 1', 'url 1', 'image 1', 1, 1);
-INSERT INTO photos (description, image, title, visible, user_photo_id) VALUES('description 2', 'url 2', 'image 2', 0, 2);
+INSERT INTO photos (description, image, title, visible, user_photo_id) VALUES('description 1', 'https://www.artmajeur.com/medias/standard/f/r/fractal-art-by-nitisara/artwork/16038106_spiral-2-red.jpg', 'image 1', 1, 1);
+INSERT INTO photos (description, image, title, visible, user_photo_id) VALUES('description 2', 'https://images.squarespace-cdn.com/content/v1/613a361fc8d81a69ab6624cc/1680826445989-H4BU0091HTBLDA6DDFXO/fractal_image.jpeg?format=500w', 'image 2', 0, 2);
 
 -- categories --
 

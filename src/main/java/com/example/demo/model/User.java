@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -19,16 +20,21 @@ public class User {
     @NotBlank
     @Email
     @Column(nullable = false, unique = true)
+    @JsonIgnore
     private String email;
+    @JsonIgnore
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<Role> roles = new HashSet<>();
 
     @OneToMany(mappedBy = "userPhoto")
+    @JsonIgnore
     private Set<Photo> photos = new HashSet<>();
 
     @OneToMany(mappedBy = "userMessage")
+    @JsonIgnore
     private Set<Message> messages = new HashSet<>();
 
     public Integer getId() {

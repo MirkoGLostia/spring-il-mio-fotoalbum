@@ -1,7 +1,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
 
-<section th:fragment="search">
+<section class="header-search" th:fragment="search">
     <form th:action="@{/}" method="GET">
         <label for="searchPhoto">search a Photo</label>
         <input id="searchPhoto" type="text"  th:placeholder="${param.search}" name="search">
