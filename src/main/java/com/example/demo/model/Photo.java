@@ -21,6 +21,7 @@ public class Photo {
     private String description;
     @NotBlank(message = "give the url of the photo")
     private String image;
+    @JsonIgnore
     private Boolean visible;
     @ManyToMany
     private Set<Category> categories = new HashSet<>();

@@ -7,37 +7,44 @@
 
 <header th:replace="fragments/macro/header :: header('Photo list', ${area})"></header>
 
-<div>
-    <h3 th:text="${message}"></h3>
-</div>
+<section class="list-container">
 
-<div th:unless="${photoList.size() > 0}">
-    <h2>
-        no photos available
-    </h2>
-</div>
-
-
-<div th:each="photo : ${photoList}">
-    <hr>
-    <h2>
-        <span th:text="${photo.title}"></span>
-        <span th:if="${photo.visible}">_x_</span>
-    </h2>
-
-    <p th:text="${photo.description}"></p>
-
-    <img th:src="${photo.image}" alt="image">
-    <br>
     <div>
-        <a th:href="@{detail/{id}(id=${photo.getId()})}">detail</a>
-        <a th:href="@{edit/{id}(id=${photo.getId()})}">modify</a>
-        <form method="POST" th:action="@{/delete/{id}(id=${photo.getId()})}" onsubmit="return confirm('Are you sure?')">
-            <button type="submit"> delete </button>
-        </form>
+        <h3 th:text="${message}"></h3>
     </div>
-    <hr>
-</div>
+
+    <div th:unless="${photoList.size() > 0}">
+        <h2>
+            no photos available
+        </h2>
+    </div>
+
+
+    <div class="card-container" th:each="photo : ${photoList}">
+        <div class="intra-container">
+            <div class="left-card">
+                <h2>
+                    <span th:text="${photo.title}"></span>
+                    <span th:if="${photo.visible}">_visible_</span>
+                </h2>
+
+                <img th:src="${photo.image}" alt="image">
+            </div>
+
+            <div class="right-card">
+                <p th:text="${photo.description}"></p>
+            </div>
+        </div>
+
+        <div class="card-buttons">
+            <a th:href="@{detail/{id}(id=${photo.getId()})}">detail</a>
+            <a th:href="@{edit/{id}(id=${photo.getId()})}">modify</a>
+            <form method="POST" th:action="@{/delete/{id}(id=${photo.getId()})}" onsubmit="return confirm('Are you sure?')">
+                <button type="submit"> delete </button>
+            </form>
+        </div>
+    </div>
+</section>
 
 </body>
 </html>
