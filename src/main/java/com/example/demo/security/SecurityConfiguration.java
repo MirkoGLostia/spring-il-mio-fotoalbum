@@ -2,7 +2,6 @@ package com.example.demo.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
@@ -38,7 +37,7 @@ public class SecurityConfiguration {
         http.authorizeHttpRequests()
                 .requestMatchers("/category", "/category/**").hasAuthority("admin")
                 .requestMatchers("/message", "/message/**").hasAuthority("user")
-                .requestMatchers("/api/v1/photo").permitAll()
+                .requestMatchers("/api/v1/photo", "/api/v1/photo/**").permitAll()
                 .requestMatchers("/api/v1/message/create").permitAll()
                 .requestMatchers("/**").hasAnyAuthority("admin", "user")
                 .and().formLogin()

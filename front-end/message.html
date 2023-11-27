@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main-style.css">
+    <link rel="stylesheet" href="css/list-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title> message </title>
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            Send a message
+        </h1>
+    </header>
+
+    <section class="message-form">
+
+        <form id="newMessageForm" method="POST">
+
+
+            <div>
+                <label for="email">contact email</label>
+                <input type="email" name="email" id="email">
+            </div>
+
+
+            <div>
+                <label for="message" class="form-label">message</label>
+                <textarea class="form-controll" name="message" id="message" rows="10"></textarea>
+            </div>
+
+
+            <div>
+                <button type="submit">Save</button>
+                <a href="http://127.0.0.1:5500/photo-list.html">Cancel</a>
+            </div>
+        </form>
+
+    </section>
+
+
+    <script src="js/message.js"></script>
+
+</body>
+
+</html>

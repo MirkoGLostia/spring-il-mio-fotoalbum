@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main-style.css">
+    <link rel="stylesheet" href="css/list-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title> photo list </title>
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            Photo list
+        </h1>
+    </header>
+
+    <section class="list-container">
+
+        <nav id="navigation">
+            <section class="header-search">
+                <label for="searchPhoto">Search a photo</label>
+                <input id="searchPhoto" type="text" placeholder="Search" name="search">
+                <button onclick="searchPhoto()" type="button">Search</button>
+            </section>
+        </nav>
+
+        <div id="root-list"></div>
+
+    </section>
+
+
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

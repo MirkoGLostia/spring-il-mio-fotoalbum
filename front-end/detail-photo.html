@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main-style.css">
+    <link rel="stylesheet" href="css/list-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title> photo detail </title>
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            Photo detail
+        </h1>
+    </header>
+
+    <section class="list-container">
+
+        <nav id="navigation">
+            <button>
+                <a href="http://127.0.0.1:5500/front-end/photo-list.html">back</a>
+            </button>
+
+            <button onclick="setUserId()">
+                <a href="http://127.0.0.1:5500/front-end/message.html">send a message</a>
+            </button>
+        </nav>
+
+        <div id="root-detail"></div>
+
+    </section>
+
+
+    <script src="js/detail.js"></script>
+
+</body>
+
+</html>
