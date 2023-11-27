@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <th:block th:insert="fragments/head :: head(title='messages')"></th:block>
 </head>
 <body>
+
+<header th:replace="fragments/macro/header :: header('messages', ${area})"></header>
+
+<div th:object="${message}">
+    <hr>
+
+    <ul th:each="mex : ${messages}">
+        <li>
+            <span th:text="${mex.email}"></span>
+            <span th:text="${mex.message}"></span>
+            <span> to: </span>
+            <span th:text="${mex.userMessage.nickname}"></span>
+        </li>
+    </ul>
+    <hr>
+</div>
 
 </body>
 </html>

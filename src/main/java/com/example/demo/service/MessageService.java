@@ -7,6 +7,8 @@ import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MessageService {
 
@@ -17,6 +19,10 @@ public class MessageService {
         mex.setId(null);
         mex.setReadMex(true);
         return messageRepository.save(mex);
+    }
+
+    public List<Message> getMessages() {
+        return messageRepository.findAll();
     }
 
 }
